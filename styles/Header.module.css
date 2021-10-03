@@ -57,7 +57,7 @@
   .navbar {
     position: absolute;
     top: 60px;
-    left: 0;
+    
     right: 0;
     background: #625DF5;
     display: flex;
@@ -65,5 +65,17 @@
     align-items: center;
     padding: 2rem;
     gap: 2rem;
+
+    animation: rightToLeft .5s ease-in-out forwards;
+  }
+
+  @keyframes rightToLeft {
+    from {
+      left: 425px;
+    }
+
+    to {
+      left: 0;
+    }
   }
 }

@@ -4,20 +4,3 @@
   width: 90%;
   margin: 0 auto;
 }
-
-.content {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(8, 100px);
-  grid-template-rows: repeat(8, 100px);
-  gap: 1rem;
-  justify-content: center;
-}
-
-.content > div.black {
-  background: #000;
-}
-
-.content > div.white {
-  background: #fff;
-}
