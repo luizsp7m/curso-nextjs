@@ -4,3 +4,95 @@
   width: 90%;
   margin: 0 auto;
 }
+
+.content {
+  
+}
+
+.count {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .075);
+}
+
+.count button {
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  background-color: #44bd32;
+  color: #fafafa;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 10rem;
+}
+
+.count button:nth-child(2) {
+  background-color: #e84118;
+}
+
+.count h3 {
+  height: 5rem;
+  width: 5rem;
+  background: #192a56;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+  font-size: 1.5rem;
+}
+
+.random {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form label {
+  font-size: 1.4rem;
+}
+
+.form input {
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  border: 1px solid rgba(0, 0, 0, .1);
+  outline: 0;
+}
+
+.form button {
+  padding: .75rem 1rem;
+  background-color: #625DF5;
+  border-radius: .5rem;
+  border: none;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.numbers {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.numbers h3 {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2c3e50;
+  border-radius: 50%;
+  color: #fafafa;
+}
