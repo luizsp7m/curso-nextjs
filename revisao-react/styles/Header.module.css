@@ -55,6 +55,10 @@
   }
 
   .navbar {
+    display: none;
+  }
+
+  .navbar.toggle {
     position: absolute;
     top: 60px;
     
