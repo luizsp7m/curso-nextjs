@@ -1,7 +1,16 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import useQuestion from '../hooks/useQuestion';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  const { getQuestions, questions } = useQuestion();
+
+  useEffect(() => {
+    console.log(questions);
+  }, [questions]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,7 +19,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>{process.env.NEXT_PUBLIC_DATOCMS_READ_ONLY}</h1>
+      <div className={styles.content}>
+        <h1>Resultado Final</h1>
+
+        <div className={styles.row}>
+          <div className={styles.column}>
+            <div className={styles.circle} style={{ background: '#ffaf40' }}>16</div>
+            <span>Perguntas</span>
+          </div>
+
+          <div className={styles.column}>
+            <div className={styles.circle} style={{ background: '#3ae374' }}>16</div>
+            <span>Corretas</span>
+          </div>
+
+          <div className={styles.column}>
+            <div className={styles.circle} style={{ background: '#ff3838' }}>100%</div>
+            <span>Porcentagem</span>
+          </div>
+        </div>
+
+        <button onClick={getQuestions}>Tentar novamente</button>
+      </div>
     </div>
   )
 }

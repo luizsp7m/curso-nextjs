@@ -15,3 +15,9 @@ body, input, button {
 #__next {
   background: #f0f0f5;
 }
+
+@media(max-width: 425px) {
+  html {
+    font-size: 50%;
+  }
+}
