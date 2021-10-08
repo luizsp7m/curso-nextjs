@@ -1,4 +1,4 @@
-import styles from '../styles/Question.module.css'
+import styles from '../styles/Quiz.module.css'
 
 import useQuestion from '../hooks/useQuestion';
 
@@ -9,6 +9,8 @@ import Router from 'next/router';
 import ReactLoading from 'react-loading';
 
 import Countdown from '../components/Countdown';
+
+import Flip from '../components/Flip';
 
 export default function Question() {
 
@@ -62,22 +64,30 @@ export default function Question() {
 
           <Countdown nextQuestion={nextQuestion} key={key} />
 
-          <div className={styles.anwsers}>
+          <div className={styles.answers}>
             {questions[indexQuestion].answers.map((answer, index) => (
-              <div
-                className={`
-                  ${styles.anwserContainer}
-                  ${isAnswered && answer.correct && styles.correct}
-                  ${isAnswered && selectedAnswer === answer && !answer.correct && styles.wrong} 
-                `}
-                key={index}
-                onClick={() => checkAnswer(answer)}
-              >
-                <label>{index + 1}</label>
-                <span>{answer.value}</span>
+              <div key={index} onClick={() => checkAnswer(answer)}>
+                <Flip
+                  answer={answer}
+                  isAnswered={isAnswered}
+                  selectedAnswer={selectedAnswer}
+                />
               </div>
             ))}
           </div>
+
+          {/* <div
+            className={`
+              ${styles.anwserContainer}
+              ${isAnswered && answer.correct && styles.correct}
+              ${isAnswered && selectedAnswer === answer && !answer.correct && styles.wrong} 
+            `}
+            key={index}
+            onClick={() => checkAnswer(answer)}
+          >
+            <label>{index + 1}</label>
+            <span>{answer.value}</span>
+          </div> */}
 
           <button onClick={nextQuestion}>Próxima</button>
         </Fragment>

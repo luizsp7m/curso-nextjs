@@ -1,0 +1,80 @@
+.flipCard {
+  width: 500px;
+  height: 60px;
+  perspective: 1000px; 
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flipCard.answered .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront, .flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0 2rem;
+}
+
+.flipCardFront span, 
+.flipCardBack span {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.flipCardFront {
+  background-color: #ccc;
+  color: #222f3e;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.flipCardFront:hover {
+  background: #f0f0f5;
+}
+
+.flipCardFront span {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.flipCardBack {
+  background-color: #ccc;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: .5rem;
+  justify-content: center;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.flipCardBack span {
+  display: none;
+}
+
+.flipCard.answered .flipCardBack span {
+  display: block;
+}
+
+.flipCardBack.correct {
+  background: #4cd137;
+}
+
+.flipCardBack.wrong {
+  background: #e74c3c;
+}
