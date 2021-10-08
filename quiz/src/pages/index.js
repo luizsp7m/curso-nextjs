@@ -2,14 +2,23 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import useQuestion from '../hooks/useQuestion';
 import { useEffect } from 'react';
+import ReactLoading from 'react-loading';
+import Link from 'next/link';
 
 export default function Home() {
 
-  const { getQuestions, questions } = useQuestion();
+  const {
+    getQuestions,
+    questions,
+    loading,
+    result,
+    newGame,
+  } = useQuestion();
 
   useEffect(() => {
-    console.log(questions);
-  }, [questions]);
+    console.log('Carregou');
+    getQuestions(); // Carregando inicial das questões
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -19,28 +28,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.content}>
-        <h1>Resultado Final</h1>
+      {loading ? <ReactLoading type={'spin'} height={'3rem'} width={'3rem'} /> : (
+        <div className={styles.content}>
+          <h1>Resultado Final</h1>
 
-        <div className={styles.row}>
-          <div className={styles.column}>
-            <div className={styles.circle} style={{ background: '#ffaf40' }}>16</div>
-            <span>Perguntas</span>
+          <div className={styles.row}>
+            <div className={styles.column}>
+              <div className={styles.circle} style={{ background: '#ffaf40' }}>{questions.length}</div>
+              <span>Perguntas</span>
+            </div>
+
+            <div className={styles.column}>
+              <div className={styles.circle} style={{ background: '#3ae374' }}>{result}</div>
+              <span>Corretas</span>
+            </div>
+
+            <div className={styles.column}>
+              <div className={styles.circle} style={{ background: '#ff3838' }}>{ Math.round((result / questions.length) * 100) }%</div>
+              <span>Porcentagem</span>
+            </div>
           </div>
 
-          <div className={styles.column}>
-            <div className={styles.circle} style={{ background: '#3ae374' }}>16</div>
-            <span>Corretas</span>
-          </div>
-
-          <div className={styles.column}>
-            <div className={styles.circle} style={{ background: '#ff3838' }}>100%</div>
-            <span>Porcentagem</span>
-          </div>
+          <Link href={`/questions`} passHref>
+            <button onClick={newGame}>Tentar novamente</button>
+          </Link>
         </div>
-
-        <button onClick={getQuestions}>Tentar novamente</button>
-      </div>
+      )}
     </div>
   )
 }

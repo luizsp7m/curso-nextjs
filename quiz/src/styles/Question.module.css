@@ -1,0 +1,97 @@
+.container {
+  min-height: 100vh;
+  background: #7d5fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.container > h1 {
+  color: #fafafa;
+}
+
+.anwsers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.anwserContainer {
+  background: #f0f0f0;
+  padding: 1.25rem;
+  min-width: 600px;
+  border-radius: .5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.anwserContainer:hover {
+  background: #fafafa;
+}
+
+.anwserContainer label {
+  height: 3.25rem;
+  width: 3.25rem;
+  background: #0984e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fafafa;
+  font-weight: bold;
+  font-size: 1.35rem;
+}
+
+.anwserContainer:nth-child(1) label {
+  background: #FFC312;
+}
+
+.anwserContainer:nth-child(2) label {
+  background: #FC427B;
+}
+
+.anwserContainer:nth-child(3) label {
+  background: #1B9CFC;
+}
+
+.anwserContainer:nth-child(4) label {
+  background: #44bd32;
+}
+
+.anwserContainer span {
+  font-size: 1.50rem;
+  font-weight: bold;
+  color: #2d3436;
+}
+
+.container > button {
+  padding: 1.5rem 2rem;
+  border-radius: .5rem;
+  border: 0;
+  background: rgba(255, 255, 255, .1);
+  font-weight: bold;
+  color: #fafafa;
+  cursor: pointer;
+  transition: background .25s;
+}
+
+.container > button:hover {
+  background: rgba(255, 255, 255, .3);
+}
+
+.anwserContainer.correct {
+  background: #4cd137;
+}
+
+.anwserContainer.wrong {
+  background: #ED4C67;
+}
+
+.anwserContainer.wrong span,
+.anwserContainer.correct span {
+  color: #fafafa;
+}

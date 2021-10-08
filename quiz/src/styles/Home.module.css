@@ -11,14 +11,26 @@
   flex-direction: column;
   align-items: center;
   gap: 4rem;
+  animation: fadeUp .5s ease-in-out forwards;
 }
 
-.content > h1 {
+@keyframes fadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.content>h1 {
   color: #fafafa;
   font-size: 3rem;
 }
 
-.content > button {
+.content>button {
   padding: 1.5rem 2rem;
   border-radius: .5rem;
   border: 0;
@@ -29,7 +41,7 @@
   transition: background .25s;
 }
 
-.content > button:hover {
+.content>button:hover {
   background: rgba(255, 255, 255, .3);
 }
 
@@ -47,7 +59,8 @@
 
 .column span {
   font-size: 1.45rem;
-  color: rgba(255, 255, 255, .95);;
+  color: rgba(255, 255, 255, .95);
+  ;
 }
 
 .circle {
