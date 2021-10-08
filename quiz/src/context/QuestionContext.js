@@ -17,11 +17,10 @@ function QuestionProvider({ children }) {
     const result = await fetch(`http://localhost:3000/api/questions`);
     const data = await result.json();
     setQuestions(data.questions);
-    // setLoading(false);
 
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1000);
   }
 
   function newGame() {

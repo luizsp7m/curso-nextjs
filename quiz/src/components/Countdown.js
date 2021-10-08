@@ -8,11 +8,11 @@ const renderTime = ({ remainingTime }) => {
   );
 }
 
-export default function Countdown({ nextQuestion, key }) {
+export default function Countdown({ nextQuestion, reset }) {
 
   return (
     <CountdownCircleTimer
-      key={key}
+      key={reset}
       size={100}
       strokeWidth={10}
       isPlaying

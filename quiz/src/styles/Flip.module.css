@@ -4,6 +4,12 @@
   perspective: 1000px; 
 }
 
+@media(max-width: 540px) {
+  .flipCard {
+    width: 275px;
+  }
+}
+
 .flipCardInner {
   position: relative;
   width: 100%;

@@ -6,10 +6,18 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  padding: 2rem;
 }
 
 .container > h1 {
   color: #fafafa;
+  text-align: center;
+  width: 90%;
+}
+
+.container > p {
+  color: #fafafa;
+  font-size: 1.25rem;
 }
 
 .answers {
