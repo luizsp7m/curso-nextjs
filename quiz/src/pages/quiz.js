@@ -2,19 +2,31 @@ import styles from '../styles/Question.module.css'
 
 import useQuestion from '../hooks/useQuestion';
 
-import { Fragment, useEffect, useState } from 'react/cjs/react.development';
+import { Fragment, useEffect, useState } from 'react';
 
 import Router from 'next/router';
 
 import ReactLoading from 'react-loading';
 
+import Countdown from '../components/Countdown';
+
 export default function Question() {
 
-  const { indexQuestion, setIndexQuestion, questions, loading, result, setResult } = useQuestion();
+  const {
+    indexQuestion,
+    setIndexQuestion,
+    questions,
+    loading,
+    result,
+    setResult,
+    getQuestions
+  } = useQuestion();
 
   const [selectedAnswer, setSelectedAnswer] = useState();
 
   const [isAnswered, setIsAnswered] = useState(false);
+
+  const [key, setKey] = useState(0);
 
   function checkAnswer(answer) {
     if (isAnswered) {
@@ -29,26 +41,26 @@ export default function Question() {
   function nextQuestion() {
     setIsAnswered(false);
 
-    if(indexQuestion === 2) {
+    if (indexQuestion === 2) {
       setIndexQuestion(0);
-      return Router.push('/');
+      return Router.push('/end');
     }
 
     setIndexQuestion(indexQuestion + 1);
+    setKey(prevKey => prevKey + 1)
   }
 
   useEffect(() => {
-    if (!questions) {
-      return Router.push('/');
-    }
-
-  }, [questions]);
+    getQuestions();
+  }, []);
 
   return (
     <div className={styles.container}>
       {loading ? <ReactLoading type={'spin'} height={'3rem'} width={'3rem'} /> : (
         <Fragment>
           <h1>{questions[indexQuestion].title}</h1>
+
+          <Countdown nextQuestion={nextQuestion} key={key} />
 
           <div className={styles.anwsers}>
             {questions[indexQuestion].answers.map((answer, index) => (
