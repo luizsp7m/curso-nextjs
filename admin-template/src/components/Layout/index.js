@@ -1,4 +1,4 @@
-import { Container, Content, Main } from "./styles";
+import { Container, Content } from "./styles";
 
 import Head from 'next/head';
 

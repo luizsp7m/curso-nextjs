@@ -7,7 +7,11 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 
 import Link from 'next/link';
 
+import useApp from '../../hooks/useApp';
+
 export default function Sidebar() {
+  const { navItem } = useApp();
+
   return (
     <Container>
       <Top>
@@ -16,21 +20,21 @@ export default function Sidebar() {
         </div>
 
         <Link href={`/`}>
-          <div className={`item`}>
+          <div className={`item ${navItem === '' && 'selected'}`}>
             <AiOutlineHome size={22} />
             <span>Início</span>
           </div>
         </Link>
 
         <Link href={`/adjustments`}>
-          <div className={`item`}>
+          <div className={`item ${navItem === 'adjustments' && 'selected'}`}>
             <GoSettings size={22} />
             <span>Ajustes</span>
           </div>
         </Link>
 
         <Link href={`/notifications`}>
-          <div className={`item`}>
+          <div className={`item ${navItem === 'notifications' && 'selected'}`} >
             <IoMdNotificationsOutline size={22} />
             <span>Notificações</span>
           </div>

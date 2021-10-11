@@ -1,7 +1,5 @@
 import { Container, Right } from "./styles";
 
-import Switch from 'react-switch';
-
 import { ThemeContext } from '../../pages/_app'; // ThemeContext
 
 import { useContext } from "react";
