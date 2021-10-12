@@ -110,3 +110,12 @@ export const Input = styled.div`
     outline: none;
   }
 `;
+
+export const Error = styled.div`
+  padding: 1.55rem 1.5rem;
+  background: #e74c3c;
+  border-radius: .5rem;
+  font-size: 1.15rem;
+  color: #fafafa;
+  text-align: center;
+`

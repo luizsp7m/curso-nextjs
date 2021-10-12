@@ -38,6 +38,46 @@ export function AuthProvider({ children }) {
     }
   }
 
+  async function createUserWithEmail(email, password, showError) {
+    try {
+      const result = await auth.createUserWithEmailAndPassword(email, password);
+
+      const { uid } = result.user;
+
+      setUser({
+        id: uid,
+      });
+
+      router.push('/');
+
+    } catch (error) {
+      showError(error.message);
+    }
+  }
+
+  async function signInWithEmail(email, password, showError) {
+    try {
+      const result = await auth.signInWithEmailAndPassword(email, password);
+
+      const { uid } = result.user;
+
+      setUser({
+        id: uid,
+      });
+
+      router.push('/');
+
+    } catch (error) {
+      showError(error.message);
+    }
+  }
+
+  async function logout() {
+    await auth.signOut();
+
+    router.push('/login');
+  }
+
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       setLoadingUser(true);
@@ -45,9 +85,9 @@ export function AuthProvider({ children }) {
       if (user) {
         const { displayName, photoURL, uid } = user;
 
-        if (!displayName || !photoURL) {
-          throw new Error('Missing information from Google Account.');
-        }
+        // if (!displayName || !photoURL) {
+        //   throw new Error('Missing information from Google Account.');
+        // }
 
         setUser({
           id: uid,
@@ -69,6 +109,9 @@ export function AuthProvider({ children }) {
       signInWithGoogle,
       user,
       loadingUser,
+      logout,
+      createUserWithEmail,
+      signInWithEmail,
     }}>
       {children}
     </AuthContext.Provider>

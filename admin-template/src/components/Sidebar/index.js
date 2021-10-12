@@ -8,9 +8,11 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 import Link from 'next/link';
 
 import useApp from '../../hooks/useApp';
+import useAuth from '../../hooks/useAuth';
 
 export default function Sidebar() {
   const { navItem } = useApp();
+  const { logout } = useAuth();
 
   return (
     <Container>
@@ -42,7 +44,7 @@ export default function Sidebar() {
       </Top>
 
       <Bottom>
-        <div>
+        <div onClick={logout}>
           <FiLogOut size={22} className={`icon`} />
           <span>Sair</span>
         </div>

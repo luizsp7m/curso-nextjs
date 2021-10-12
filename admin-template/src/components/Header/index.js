@@ -18,7 +18,9 @@ export default function Header({ title }) {
       <Right>
         <button onClick={toggleTheme}>Swith</button>
 
-        { !loadingUser && <img src={user.avatar} /> }
+        { user.id }
+
+        { !loadingUser && <img src={user.avatar ? user.avatar : 'https://avatars.dicebear.com/api/bottts/1.svg'} /> }
       </Right>
     </Container>
   );
