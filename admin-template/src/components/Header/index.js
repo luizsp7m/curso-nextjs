@@ -4,8 +4,12 @@ import { ThemeContext } from '../../pages/_app'; // ThemeContext
 
 import { useContext } from "react";
 
+import useAuth from '../../hooks/useAuth';
+
 export default function Header({ title }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
+
+  const { user, loadingUser } = useAuth();
 
   return (
     <Container>
@@ -14,7 +18,7 @@ export default function Header({ title }) {
       <Right>
         <button onClick={toggleTheme}>Swith</button>
 
-        <img src={`https://i.pinimg.com/originals/97/8c/3b/978c3bd56b4b109a881da2db5bc9c215.gif`} />
+        { !loadingUser && <img src={user.avatar} /> }
       </Right>
     </Container>
   );
