@@ -14,7 +14,7 @@ function QuestionProvider({ children }) {
   async function getQuestions() {
     setLoading(true);
 
-    const result = await fetch(`http://localhost:3000/api/questions`);
+    const result = await fetch(`https://curso-nextjs-oloqkjmfn-luizsp7m.vercel.app/api/questions`);
     const data = await result.json();
     setQuestions(data.questions);
 
